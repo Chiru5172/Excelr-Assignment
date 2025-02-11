@@ -1,0 +1,112 @@
+//App.js
+import React from "react";
+import ProfileCard from "./ProfileCard";
+import "./App.css";
+
+const App = () => {
+  const users = [
+    {
+      name: "Nithin",
+      greeting: "Hello",
+      imageSrc: "https://mruexams.com/SBCMSSTUDENT/Frm_StudentPhoto.aspx?StudentCode=10105",
+    },
+    {
+      name: "Manohar",
+      greeting: "Hi",
+      imageSrc: "https://mruexams.com/SBCMSSTUDENT/Frm_StudentPhoto.aspx?StudentCode=10098",
+    },
+    {
+      name: "Rajesh",
+      greeting: "How are you",
+      imageSrc: "https://mruexams.com/SBCMSSTUDENT/Frm_StudentPhoto.aspx?StudentCode=10139",
+    },
+  ];
+
+  return (
+    <div>
+      <div className="titl">
+        <h1>Profile Card</h1>
+      </div>
+      <div>
+        <div className="app-container">
+      
+      {users.map((user, index) => (
+        <ProfileCard
+          key={index}
+          name={user.name}
+          greeting={user.greeting}
+          imageSrc={user.imageSrc}
+        />
+      ))}
+    </div>
+      </div>
+    </div>
+    
+  );
+};
+
+export default App;
+
+//ProfileCard.js
+import React from "react";
+import "./App.css";
+
+const ProfileCard = ({ name, greeting, imageSrc }) => {
+  return (
+    <div className="profile-card">
+      <img src={imageSrc} alt={name} />
+      <h2>{name}</h2>
+      <p>{greeting}</p>
+    </div>
+  );
+};
+
+export default ProfileCard;
+
+//App.css
+.titl{
+  background-color: antiquewhite;
+  text-align: center;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.app-container {
+  background-color: aqua;
+  display: flex;
+  
+  gap: 20px;
+  padding: 20px;
+}
+
+.profile-card {
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  width: 200px;
+}
+
+.profile-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.profile-card h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-card p {
+  color: #666;
+}
